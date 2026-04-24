@@ -131,7 +131,7 @@ function SuccessState() {
 
 /* ── Main ────────────────────────────────────────────────────── */
 export default function ContactForm() {
-  const [form, setForm] = useState({ name: '', business: '', email: '', phone: '', challenge: '' })
+  const [form, setForm] = useState({ name: '', business: '', email: '', phone: '', link: '', challenge: '' })
   const [industry, setIndustry] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
@@ -251,6 +251,9 @@ export default function ContactForm() {
                       <FloatInput label="Business Name" name="business" value={form.business} onChange={handleChange} required />
                       <FloatInput label="Email Address" name="email" type="email" value={form.email} onChange={handleChange} required />
                       <FloatInput label="Phone Number" name="phone" type="tel" value={form.phone} onChange={handleChange} required />
+                      <div className="sm:col-span-2">
+                        <FloatInput label="Website / Social Link" name="link" value={form.link} onChange={handleChange} />
+                      </div>
                     </div>
 
                     {/* ── Industry ── */}
