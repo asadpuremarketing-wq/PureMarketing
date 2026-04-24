@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ════════════════════════════════════════════════════════════════════
+   BASE
+   ════════════════════════════════════════════════════════════════════ */
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-canvas text-ink-primary font-sans text-body-md;
+  }
+
+  /* Focus ring offset respects the dark background */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent/70 ring-offset-2 ring-offset-canvas;
+  }
+
+  /* Custom scrollbar — minimal, on-brand */
+  ::-webkit-scrollbar        { width: 4px; }
+  ::-webkit-scrollbar-track  { @apply bg-canvas; }
+  ::-webkit-scrollbar-thumb  { @apply bg-border-emphasis rounded-full; }
+
+  /* Text selection */
+  ::selection {
+    @apply bg-accent/20 text-white;
+  }
+
+  /* Heading defaults — weight/tracking driven by fontSize tokens */
+  h1 { @apply text-display-lg font-bold text-balance; }
+  h2 { @apply text-display-md font-bold text-balance; }
+  h3 { @apply text-heading-lg font-semibold; }
+  h4 { @apply text-heading-md font-semibold; }
+  p  { @apply text-body-md text-ink-secondary; }
+
+  a {
+    @apply text-accent-400 underline-offset-4 hover:underline transition-colors duration-150;
+  }
+
+  img, video {
+    @apply max-w-full;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   COMPONENTS
+   ════════════════════════════════════════════════════════════════════ */
+@layer components {
+
+  /* ── Premium Card ─────────────────────────────────────────────── */
+  /* Dark glassmorphism: frosted surface, hairline border, hover glow */
+  .card-premium {
+    @apply relative rounded-card
+           bg-surface/80 backdrop-blur-glass
+           border border-white/[0.06]
+           shadow-card
+           transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .card-premium:hover {
+    @apply shadow-card-hover border-accent/25;
+  }
+
+  /* Raised variant — slightly lighter surface */
+  .card-raised {
+    @apply card-premium bg-surface-raised/90;
+  }
+
+  /* ── Signature Button — Primary CTA ──────────────────────────── */
+  /* Solid Electric Indigo, no gradient, 0.375rem radius, high contrast */
+  .btn-signature {
+    @apply inline-flex items-center justify-center gap-2 select-none
+           px-7 py-3.5 rounded-btn
+           bg-accent-500 text-white font-semibold text-body-md
+           border border-accent-400/30
+           shadow-btn-accent
+           transition-all duration-200 ease-out
+           hover:bg-accent-400 hover:shadow-btn-accent-hover hover:-translate-y-px
+           active:translate-y-0 active:bg-accent-600 active:shadow-btn-accent
+           disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  /* Small size modifier */
+  .btn-signature-sm {
+    @apply btn-signature px-5 py-2.5 text-sm;
+  }
+
+  /* ── Ghost Button — Secondary CTA ────────────────────────────── */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 select-none
+           px-7 py-3.5 rounded-btn
+           bg-transparent text-ink-primary font-semibold text-body-md
+           border border-border-emphasis
+           transition-all duration-200 ease-out
+           hover:border-white/25 hover:bg-white/[0.04]
+           active:bg-white/[0.06]
+           disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  /* ── Section Wrapper ─────────────────────────────────────────── */
+  .section {
+    @apply py-section px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto;
+  }
+
+  /* Narrower content column for text-heavy sections */
+  .section-content {
+    @apply py-section px-4 sm:px-6 lg:px-8 w-full max-w-4xl mx-auto;
+  }
+
+  /* ── Overline Label ───────────────────────────────────────────── */
+  /* Small all-caps eyebrow text in accent color */
+  .label-overline {
+    @apply text-label uppercase tracking-widest text-accent-400;
+  }
+
+  .label-overline-gold {
+    @apply text-label uppercase tracking-widest text-gold-400;
+  }
+
+  /* ── Horizontal Rule ─────────────────────────────────────────── */
+  .divider {
+    @apply border-t border-border;
+  }
+
+  /* ── Noise Texture Overlay ───────────────────────────────────── */
+  /* Apply to a `relative` parent to add subtle film grain */
+  .noise-overlay::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none opacity-[0.022] rounded-[inherit];
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+  }
+
+  /* ── Stat / Metric Block ─────────────────────────────────────── */
+  .stat-block {
+    @apply flex flex-col gap-1;
+  }
+  .stat-block__number {
+    @apply text-display-md font-bold text-white;
+  }
+  .stat-block__label {
+    @apply text-label uppercase tracking-widest text-ink-muted;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   UTILITIES
+   ════════════════════════════════════════════════════════════════════ */
+@layer utilities {
+  /* Balanced text wrapping for headings */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Accent gradient text — use sparingly on single keywords */
+  .gradient-text-accent {
+    @apply bg-gradient-to-r from-accent-300 to-accent-400
+           bg-clip-text text-transparent;
+  }
+
+  /* Gold gradient text */
+  .gradient-text-gold {
+    @apply bg-gradient-to-r from-gold-400 to-gold-500
+           bg-clip-text text-transparent;
+  }
+
+  /* Ambient glow utilities — decorative blobs/halos */
+  .glow-accent {
+    @apply shadow-glow-accent;
+  }
+  .glow-gold {
+    @apply shadow-glow-gold;
+  }
+
+  /* Subtle dot-grid background pattern */
+  .bg-dot-grid {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Zero-opacity animation start state (pair with animate-fade-up) */
+  .animate-on-scroll {
+    @apply opacity-0;
+  }
+}

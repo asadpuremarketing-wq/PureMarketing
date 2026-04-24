@@ -1,0 +1,5 @@
+export { default as AboutHero }        from './AboutHero'
+export { default as AboutPhilosophy }  from './AboutPhilosophy'
+export { default as AboutPillars }     from './AboutPillars'
+export { default as Differentiators }  from './Differentiators'
+export { default as AboutIndustries }  from './AboutIndustries'
