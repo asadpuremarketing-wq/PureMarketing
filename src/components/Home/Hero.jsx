@@ -26,7 +26,7 @@ function HeroVisual() {
       >
         {/* Header row */}
         <div className="flex items-center justify-between">
-          <span className="label-overline text-[0.7rem]">Growth Dashboard</span>
+          <span className="label-overline text-[0.7rem]">Pure Dashboard</span>
           <span className="flex items-center gap-1.5 text-emerald-400 text-caption font-medium">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Live

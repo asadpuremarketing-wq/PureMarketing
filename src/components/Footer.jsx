@@ -44,8 +44,8 @@ export default function Footer() {
           >
             {/* Logo */}
             <a href="#" className="inline-flex items-baseline gap-0">
-              <span className="text-white   font-extrabold tracking-[0.14em] text-[0.85rem] uppercase">Growth</span>
-              <span className="text-accent-400 font-extrabold tracking-[0.14em] text-[0.85rem] uppercase ml-[0.4em]">Authority</span>
+              <span className="text-white   font-extrabold tracking-[0.14em] text-[0.85rem] uppercase">Pure</span>
+              <span className="text-accent-400 font-extrabold tracking-[0.14em] text-[0.85rem] uppercase ml-[0.4em]">Marketing</span>
             </a>
 
             {/* Positioning statement */}
@@ -143,7 +143,7 @@ export default function Footer() {
         {/* ── Bottom Bar ── */}
         <div className="mt-14 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-ink-muted text-caption order-2 sm:order-1">
-            © {year} Growth Authority. All rights reserved.
+            © {year} Pure Marketing. All rights reserved.
           </p>
 
           {/* "Built for Performance" badge */}

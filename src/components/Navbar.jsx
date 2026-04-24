@@ -42,10 +42,10 @@ export default function Navbar() {
           {/* ── Logo ── */}
           <NavLink to="/" className="shrink-0 flex items-baseline gap-0 group" aria-label="Growth Authority">
             <span className="text-white   font-extrabold tracking-[0.14em] text-[0.85rem] uppercase transition-opacity duration-150 group-hover:opacity-80">
-              Growth
+              Pure
             </span>
             <span className="text-accent-400 font-extrabold tracking-[0.14em] text-[0.85rem] uppercase ml-[0.4em] transition-opacity duration-150 group-hover:opacity-80">
-              Authority
+              Marketing
             </span>
           </NavLink>
 
