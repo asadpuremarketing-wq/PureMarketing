@@ -8,10 +8,10 @@ const INDUSTRIES = [
 ]
 
 const COMPANY = [
-  { label: 'About',       href: '#about' },
-  { label: 'Our Work',    href: '#case-studies' },
-  { label: 'Services',    href: '#services' },
-  { label: 'Contact',     href: '#contact' },
+  { label: 'About',       href: '/about' },
+  { label: 'Our Work',    href: '/' },
+  { label: 'Services',    href: '/services' },
+  { label: 'Contact',     href: '/contact' },
 ]
 
 const GTA_AREAS = ['Hamilton', 'Burlington', 'Oakville', 'Mississauga', 'Brampton', 'GTA Wide']
